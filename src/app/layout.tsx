@@ -1,5 +1,6 @@
 import { ThemeProvider } from "@/components/theme-provider";
-import { DATA } from "@/data/resume";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
@@ -15,34 +16,6 @@ export const metadata: Metadata = {
     default: "p.phonsing_",
     template: `p.phonsing_%s`,
   },
-  // description: DATA.description,
-  // openGraph: {
-  //   title: `${DATA.name}`,
-  //   description: DATA.description,
-    
-  //   siteName: `${DATA.name}`,
-  //   locale: "en_US",
-  //   type: "website",
-  // },
-  // robots: {
-  //   index: true,
-  //   follow: true,
-  //   googleBot: {
-  //     index: true,
-  //     follow: true,
-  //     "max-video-preview": -1,
-  //     "max-image-preview": "large",
-  //     "max-snippet": -1,
-  //   },
-  // },
-  // twitter: {
-  //   title: `${DATA.name}`,
-  //   card: "summary_large_image",
-  // },
-  // verification: {
-  //   google: "",
-  //   yandex: "",
-  // },
 };
 
 export default function RootLayout({
@@ -53,7 +26,7 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <head>
-      <link rel="icon" href="./favicon.ico" sizes="32x32" />
+        <link rel="icon" href="./favicon.ico" sizes="32x32" />
       </head>
       <body
         className={cn(
@@ -64,6 +37,8 @@ export default function RootLayout({
         <ThemeProvider attribute="class" defaultTheme="light">
           {children}
         </ThemeProvider>
+        <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   );
