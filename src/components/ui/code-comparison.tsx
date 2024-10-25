@@ -1,11 +1,11 @@
 "use client";
-
+import { ScrollShadow } from "@nextui-org/react";
 import { FileIcon } from "lucide-react";
 import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
 interface CodeComparisonProps {
-  beforeCode: string;
+  code: string;
   language: string;
   filename: string;
   lightTheme: string;
@@ -13,7 +13,7 @@ interface CodeComparisonProps {
 }
 
 export default function CodeComparison({
-  beforeCode,
+  code,
   language,
   filename,
   lightTheme,
@@ -31,7 +31,7 @@ export default function CodeComparison({
       // Dynamically import `shiki` to ensure it only runs in the browser
       import("shiki").then(({ codeToHtml }) => {
         async function highlightCode() {
-          const before = await codeToHtml(beforeCode, {
+          const before = await codeToHtml(code, {
             lang: language,
             theme: selectedTheme,
           });
@@ -41,19 +41,19 @@ export default function CodeComparison({
         highlightCode();
       });
     }
-  }, [theme, systemTheme, beforeCode, language, lightTheme, darkTheme]);
+  }, [theme, systemTheme, code, language, lightTheme, darkTheme]);
 
   const renderCode = (code: string, highlighted: string) => {
     if (highlighted) {
       return (
         <div
-          className="max-h-[500px] overflow-auto bg-background text-sm font-mono [&>pre]:h-full [&>pre]:!bg-transparent [&>pre]:p-1 [&_code]:break-all"
+          className="w-[344px] sm:w-full overflow-auto bg-background font-mono [&>pre]:h-full [&>pre]:!bg-transparent [&>pre]:p-4 [&_code]:break-all"
           dangerouslySetInnerHTML={{ __html: highlighted }}
         />
       );
     } else {
       return (
-        <pre className="max-h-[500px] overflow-auto bg-background text-sm font-mono text-foreground">
+        <pre className="w-[344px] sm:w-full overflow-auto break-all bg-background p-4 font-mono text-xs text-foreground">
           {code}
         </pre>
       );
@@ -61,15 +61,15 @@ export default function CodeComparison({
   };
 
   return (
-    <div className="mx-auto w-full max-w-5xl ">
-      <div className="relative w-full overflow-hidden rounded-xl border border-border">
-        <div className="flex items-center bg-accent p-2 text-sm text-foreground">
-          <FileIcon className="mr-2 h-4 w-4" />
-          {filename}
-          <span className="ml-auto">{language}</span>
-        </div>
-        <div className="pl-2"> {renderCode(beforeCode, highlightedBefore)}</div>
+    <>
+      <div className="flex items-center bg-accent p-2 text-sm text-foreground rounded-t-lg">
+        <FileIcon className="mr-2 h-4 w-4" />
+        {filename}
+        <span className="ml-auto">{language}</span>
       </div>
-    </div>
+      <ScrollShadow  className="max-h-[500px] border-x border-b rounded-b-lg" hideScrollBar size={5}>
+      <div> {renderCode(code, highlightedBefore)}</div>
+      </ScrollShadow>
+    </>
   );
 }

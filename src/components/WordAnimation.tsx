@@ -41,7 +41,7 @@ const WordAnimation: React.FC = () => {
           ref={(el) => {
             spansRef.current[idx] = el;
           }}
-          className="word text-4xl md:text-8xl th"
+          className="word text-5xl md:text-8xl th"
         >
           {letter}
         </span>

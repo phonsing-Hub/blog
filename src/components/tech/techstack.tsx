@@ -12,107 +12,107 @@ const reviews = [
   },
   {
     name: "Golang",
-    img: "tech/golang.svg",
+    img: "../tech/golang.svg",
   },
   {
     name: "Javascript",
-    img: "tech/javascript.svg",
+    img: "../tech/javascript.svg",
   },
   {
     name: "Typescript",
-    img: "tech/typescript.svg",
+    img: "../tech/typescript.svg",
   },
   {
     name: "PHP",
-    img: "tech/php.svg",
+    img: "../tech/php.svg",
   },
   {
     name: "Python",
-    img: "tech/py.svg",
+    img: "../tech/py.svg",
   },
   {
     name: "SQL",
-    img: "tech/sql.svg",
+    img: "../tech/sql.svg",
   },
   {
     name: "React",
-    img: "tech/react.svg",
+    img: "../tech/react.svg",
   },
   {
     name: "React Native",
-    img: "tech/react-native.svg",
+    img: "../tech/react-native.svg",
   },
   {
     name: "Next",
-    img: "tech/next.svg",
+    img: "../tech/next.svg",
   },
   {
     name: "NodeJS",
-    img: "tech/node.svg",
+    img: "../tech/node.svg",
   },
   {
     name: "Bun",
-    img: "tech/bun.svg",
+    img: "../tech/bun.svg",
   },
   {
     name: "Express",
-    img: "tech/express.webp",
+    img: "../tech/express.webp",
   },
   {
     name: "Elysia",
-    img: "tech/elysia.svg",
+    img: "../tech/elysia.svg",
   },
   {
     name: "Go Fiber",
-    img: "tech/golang.svg",
+    img: "../tech/golang.svg",
   },
   {
     name: "Go Gorm",
-    img: "tech/gorm.svg",
+    img: "../tech/gorm.svg",
   },
   {
     name: "MySQL",
-    img: "tech/mysql.svg",
+    img: "../tech/mysql.svg",
   },
   {
     name: "PostgreSQL",
-    img: "tech/pg.svg",
+    img: "../tech/pg.svg",
   },
   {
     name: "MSS Server",
-    img: "tech/mssql.svg",
+    img: "../tech/mssql.svg",
   },
   {
     name: "MongoDB",
-    img: "tech/mongodb.svg",
+    img: "../tech/mongodb.svg",
   },
   {
     name: "Prisma",
-    img: "tech/prisma.svg",
+    img: "../tech/prisma.svg",
   },
   {
     name: "Arduino",
-    img: "tech/arduino.svg",
+    img: "../tech/arduino.svg",
   },
   {
     name: "Easy EDA",
-    img: "tech/easyeda.png",
+    img: "../tech/easyeda.png",
   },
   {
     name: "Docker",
-    img: "tech/docker.svg",
+    img: "../tech/docker.svg",
   },
   {
     name: "Ubuntu",
-    img: "tech/ubuntu.svg",
+    img: "../tech/ubuntu.svg",
   },
   {
     name: "Google Cloud",
-    img: "tech/googlecloud.svg",
+    img: "../tech/googlecloud.svg",
   },
   {
     name: "Linux",
-    img: "tech/linux.svg",
+    img: "../tech/linux.svg",
   },
 ];
 
@@ -131,7 +131,7 @@ const ReviewCard = ({ img, name }: { img: string; name: string }) => {
       )}
     >
       <div className="flex justify-center items-center gap-2">
-        <Image width={32} src={img} radius="none" />
+        <Image width={32} src={img} radius="none" alt="Tech Stack Icon"/>
         <p className="text-sm font-bold">{name}</p>
       </div>
     </figure>
@@ -141,8 +141,8 @@ const ReviewCard = ({ img, name }: { img: string; name: string }) => {
 export default function TechStack() {
   return (
     <div className="relative flex w-full flex-col items-center justify-center overflow-hidden bg-background">
-      <Marquee pauseOnHover className="[--duration:20s]">
-        {firstRow.map((review) => (
+      <Marquee  pauseOnHover className="[--duration:20s]">
+        {secondRow.map((review) => (
           <ReviewCard key={review.name} {...review} />
         ))}
       </Marquee>

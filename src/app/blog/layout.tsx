@@ -12,11 +12,14 @@ export default function BlogLayout({
         <main className="flex relative">
           <section
             id="BlogNavbar1"
-            className="hidden lg:flex justify-end flex-[1] pt-10 "
+            className="hidden lg:flex justify-end flex-[1] pt-10 relative"
           >
-            <ListMenu />
+           <div className=" sticky top-10">
+           <ListMenu />
+           </div>
           </section>
           {children}
+          
         </main>
       </div>
     </>

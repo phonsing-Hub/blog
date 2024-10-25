@@ -4,6 +4,7 @@ import WordAnimation from "@/components/WordAnimation";
 import TechStack from "@/components/tech/techstack";
 import Link from "next/link";
 import { Divider } from "@nextui-org/react";
+
 export const metadata = {
   title: "blog",
   description: "My thoughts on software development, life, and more.",
@@ -14,7 +15,7 @@ const BLUR_FADE_DELAY = 0.01;
 export default async function BlogPage() {
   return (
     <>
-      <section id="BlogPageContent" className="flex-[3] pt-10">
+      <section id="BlogPageContent" className="flex-[3] pt-10 py-12 sm:py-24 px-4">
         <div className="relative flex h-48 w-full flex-col items-center justify-center overflow-hidden  bg-background">
           <Meteors number={30} />
           <WordAnimation />
@@ -26,14 +27,15 @@ export default async function BlogPage() {
             ผมเป็นนักศึกษามหาวิทยาลัยศรีปทุมสาขาวิศวกรรมคอมพิวเตอร์
             มาดูกันว่าในนี้มีอะไรให้เพื่อนๆได้รับชมกันบ้าง{" "}
             <Link href={"/blog/authentication"} className=" font-bold">
-              Let's go
+              {"Let's go"}
             </Link>
           </span>
-          <Divider className="my-4" />x
+          <Divider className="my-4" />
         </BlurFade>
         <div className="md:w-[700px] w-[340px] mt-2 mx-auto">
           <TechStack />
         </div>
+          <p className="text-xs font-bold text-center mt-4">apl ps @2002</p>
       </section>
       <section id="BlogNavbar2" className="hidden lg:flex flex-[1] pt-10">
         {/* <p>BlogNavbar</p> */}

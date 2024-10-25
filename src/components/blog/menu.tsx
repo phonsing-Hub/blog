@@ -7,8 +7,9 @@ import type { MenuProps } from "antd";
 import { Menu } from "antd";
 import BlurFade from "@/components/magicui/blur-fade";
 import { FaUserLock } from "react-icons/fa";
-import { PiTreeViewBold } from "react-icons/pi";
 import { LuGlobe } from "react-icons/lu";
+import { IoHardwareChip } from "react-icons/io5";
+
 
 type MenuItem = Required<MenuProps>["items"][number];
 
@@ -27,7 +28,7 @@ const items: MenuItem[] = [
     type: "group",
     children: [
       { key: "/blog/authentication", label: "Authentication", icon: <FaUserLock size={18}/>},
-      { key: "fiber", label: "Go Fiber", icon: <PiTreeViewBold size={18}/> },
+      { key: "/blog/embeddedsystem", label: "Embedded system", icon: <IoHardwareChip size={18}/> },
     ],
   },
 ];
@@ -41,7 +42,6 @@ const ListMenu: React.FC = () => {
 
   useEffect(() => {
     setMounted(true);
-    console.log(pathname)
   }, []);
 
   if (!mounted) return null; 

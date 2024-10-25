@@ -35,7 +35,7 @@ export default function Page() {
               />
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
-             <At className="md:w-32 md:h-32 w-24 h-24" src={DATA.avatarUrl} isBordered/>
+             <At className="md:w-32 md:h-32 w-24 h-24" src={DATA.avatarUrl} isBordered color="primary"/>
             </BlurFade>
           </div>
         </div>
