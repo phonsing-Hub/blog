@@ -17,14 +17,39 @@ const authentication = {
      }`,
     struct_description:
       "เป็น Struct สำหรับเก็บข้อมูลผู้ใช้ โดยประกอบไปด้วย Email และ Password ที่รับค่าจาก JSON ในการล็อกอิน",
-    generateJWT_code: `func generateJWT(email string) (string, error)`,
+    generateJWT_code: `func generateJWT(email string) (string, error) {
+        token := jwt.NewWithClaims(jwt.SigningMethodHS256, jwt.MapClaims{
+            "email": email,
+            "exp":   time.Now().Add(time.Hour * 24).Unix(), // token หมดอายุใน 24 ชั่วโมง
+        })
+        return token.SignedString(jwtSecret)
+    }`,
     generateJWT_description:
       "ทำหน้าที่สร้าง JWT Token โดยใช้อีเมลผู้ใช้เป็นข้อมูลใน claims กำหนดให้ Token หมดอายุภายใน 24 ชั่วโมง (exp) และใช้การเข้ารหัสแบบ HS256 และเซ็นด้วย jwtSecret",
-    handler_code: `func login(c *fiber.Ctx) error`,
+    handler_code: `func login(c *fiber.Ctx) error {
+          var user User
+          if err := c.BodyParser(&user); err != nil {
+              return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
+                  "message": "Invalid request",
+              })
+    }`,
     handler_description:
       "ทำหน้าที่จัดการการเข้าสู่ระบบ (Login) เช่น รับข้อมูลผู้ใช้ (อีเมลและรหัสผ่าน) จาก Body ของคำขอ (request) ตรวจสอบข้อมูล (ในตัวอย่างนี้เป็นการ hardcode ข้อมูลอีเมลและรหัสผ่าน) ถ้าข้อมูลถูกต้อง จะทำการสร้าง JWT Token และส่งกลับในรูปแบบ cookie ถ้าข้อมูลไม่ถูกต้อง จะส่งสถานะ 401 (Unauthorized)",
 
-    middleware_code: `func protected(c *fiber.Ctx) error`,
+    middleware_code: `func protected(c *fiber.Ctx) error {
+          cookie := c.Cookies("jwt")
+          token, err := jwt.Parse(cookie, func(t *jwt.Token) (interface{}, error) {
+              return jwtSecret, nil
+          })
+          if err != nil || !token.Valid {
+              return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
+                  "message": "Unauthorized",
+              })
+          }
+          return c.JSON(fiber.Map{
+              "message": "You are logged in",
+          })
+      }`,
     middleware_description:
       'ทำหน้าที่ตรวจสอบ JWT Token ที่ถูกส่งมาในรูปแบบ cookie ดึง Token จาก cookie ที่มีชื่อ jwt แล้วทำการ Parse JWT และตรวจสอบความถูกต้อง (Validate Token) หาก Token ถูกต้อง จะส่งคำตอบว่า "You are logged in" หาก Token ไม่ถูกต้องหรือหมดอายุ จะส่งสถานะ 401 (Unauthorized) พร้อมข้อความแจ้งว่าไม่ได้รับอนุญาต',
 
@@ -132,7 +157,19 @@ const authentication = {
     "JWT เป็นเทคโนโลยีที่ช่วยให้การยืนยันตัวตนของผู้ใช้ในระบบเป็นเรื่องง่ายขึ้นและปลอดภัยขึ้น ด้วยความสามารถในการจัดเก็บและเข้ารหัสข้อมูลอย่างมีประสิทธิภาพ ทำให้สามารถนำไปใช้ในระบบที่มีการเชื่อมต่อระหว่างไคลเอนต์และเซิร์ฟเวอร์ได้เป็นอย่างดี",
 };
 
-const embeddedsystem = {
-    name: "Embedded System",
-}
-export { authentication, embeddedsystem };
+const HardwareControlledSystem = {
+  name: "Hardware Controlled System",
+  introduction:
+    "Hardware-Controlled System คือระบบควบคุมที่ใช้ฮาร์ดแวร์เป็นหลักในการทำงาน ไม่มีการใช้ไมโครคอนโทรลเลอร์หรือไมโครโปรเซสเซอร์มาช่วยในการประมวลผล โดยการทำงานทั้งหมดของระบบขึ้นอยู่กับการออกแบบวงจร เช่น การใช้ลอจิกเกต (AND, OR, NOT) หรืออุปกรณ์อิเล็กทรอนิกส์พื้นฐานอย่างไดโอด ทรานซิสเตอร์ และรีเลย์ ระบบแบบนี้ได้รับการออกแบบมาให้ทำงานเฉพาะหน้าที่อย่างง่าย และเป็นที่นิยมในงานที่ต้องการความเสถียร ไม่ซับซ้อน และใช้พลังงานต่ำ เช่น ตัวควบคุมในระบบอัตโนมัติพื้นฐานในโรงงานอุตสาหกรรม",
+  content: {
+    working:
+      'การทำงานของ Hardware-Controlled System คือระบบทำงานโดยอาศัยสัญญาณจากเซ็นเซอร์หรือสัญญาณจากการออกแบบวงจร และตอบสนองแบบอัตโนมัติตามเงื่อนไขที่กำหนดในวงจร เช่น การใช้ลอจิกเกต AND สำหรับการควบคุมเฉพาะในเงื่อนไขที่อินพุตทุกตัวเป็น "1" หรือลอจิกเกต OR ที่ควบคุมการทำงานเมื่ออินพุตใดๆ มีค่าเป็น "1"',
+    example:
+      "ตัวอย่างรถที่เดินตามแสงจะทำงานโดยให้เซ็นเซอร์ตรวจจับแสงส่งสัญญาณไปยังวงจรลอจิกที่ควบคุมทิศทางของมอเตอร์ เมื่อเซ็นเซอร์ฝั่งใดฝั่งหนึ่งตรวจจับแสง มอเตอร์ของฝั่งนั้นจะเคลื่อนที่ไปยังแสงอัตโนมัติ",
+    opamp:
+      "เราใช้ Op-Amp มาใช้ร่วมกับวงจรแบ่งแรงดัน (ในที่นี้เราเลือกใช้เบอร์ 741) (Voltage Divider) เพื่อแปลงสัญญาณ Analog ที่ได้จาก LDR เป็น Digital หลักการคือ ถ้าแรงดันขา in+ และ in- รวมกันแล้วมีค่า >= 6V ฝั่ง output ก็จะปล่อยไฟ 6V ถ้า in+ และ in- รวมกันแล้วมีค่า < 6V ฝั่ง output ก็จะปล่อยไฟ 0V ก็จะแทนได้ว่า 0 1",
+  },
+  summarize:
+    "Hardware-Controlled System เป็นระบบที่เหมาะกับงานที่มีฟังก์ชันการทำงานที่แน่นอนและไม่ต้องการการประมวลผลซับซ้อน ระบบนี้อาศัยการออกแบบวงจรโดยตรง จึงมีความเสถียรและความน่าเชื่อถือสูง ใช้พลังงานน้อย และมีการตอบสนองรวดเร็ว อย่างไรก็ตาม การปรับเปลี่ยนการทำงานหรือการเพิ่มฟังก์ชันทำได้ยาก เพราะระบบนี้ทำงานตามวงจรที่ออกแบบมาโดยตรง",
+};
+export { authentication, HardwareControlledSystem };

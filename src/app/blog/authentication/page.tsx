@@ -18,7 +18,7 @@ export default function page() {
     <>
       <section
         id="AuthPageContent"
-        className="BlogPage flex-[3] px-4 py-12 overflow-auto"
+        className="BlogPage flex-[4] px-4 py-12 overflow-auto"
       >
         <BlurFade delay={BLUR_FADE_DELAY * 2}>
           <h1 className="text-4xl">{auth.name}</h1>

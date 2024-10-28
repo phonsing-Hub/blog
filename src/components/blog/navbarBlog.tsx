@@ -29,7 +29,7 @@ import { usePathname, useRouter } from "next/navigation";
 const options = [
   { value: "Introduction", key: "/blog" },
   { value: "Authentication", key: "/blog/authentication" },
-  { value: "Embedded system", key: "/blog/embeddedsystem" },
+  { value: "Hardware Controlled System", key: "/blog/hardware-sontrolled-system" },
 ];
 
 const menuTittle = [

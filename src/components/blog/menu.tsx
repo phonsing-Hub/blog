@@ -28,7 +28,7 @@ const items: MenuItem[] = [
     type: "group",
     children: [
       { key: "/blog/authentication", label: "Authentication", icon: <FaUserLock size={18}/>},
-      { key: "/blog/embeddedsystem", label: "Embedded system", icon: <IoHardwareChip size={18}/> },
+      { key: "/blog/hardware-sontrolled-system", label: "Hardware Controlled System", icon: <IoHardwareChip size={18}/> },
     ],
   },
 ];

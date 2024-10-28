@@ -7,8 +7,7 @@ export const DATA = {
   //url: "https://dillion.io",
   location: "San Francisco, CA",
   locationLink: "https://www.google.com/maps/place/sanfrancisco",
-  description:
-    "Computer Engineering and Software Developer",
+  description: "Computer Engineering and Software Developer",
   summary:
     "Hello, my name is Phonsing Taleman. I am passionate about the development of technology and innovation. My expertise lies in software development and hardware design. I am always eager to learn and improve myself, with a commitment to creating valuable and interesting work continuously.",
   avatarUrl: "/favicon.png",
@@ -40,7 +39,7 @@ export const DATA = {
     "Easy EDA",
     "Ubuntu",
     "Google Cloud",
-    "Docker"
+    "Docker",
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
@@ -164,23 +163,17 @@ export const DATA = {
       logoUrl: "/spu.png",
       start: "2021",
       end: "2025",
-    }
+    },
   ],
   projects: [
     {
       title: "Employee System",
       href: "https://github.com/phonsing-Hub/EmployeeSystem",
-      dates: "Sep 2024 - Present",
+      dates: "Sep 2024",
       active: true,
       description:
         "technology designed to streamline core HR services and improve workforce productivity.",
-      technologies: [
-        "React",
-        "Go Fiber",
-        "Gorm DB",
-        "TailwindCSS",
-        "Next UI",
-      ],
+      technologies: ["React", "Go Fiber", "Gorm DB", "TailwindCSS", "Next UI"],
       links: [
         {
           type: "Source",
@@ -189,12 +182,12 @@ export const DATA = {
         },
       ],
       image: "",
-      video:"./1026.mp4",
+      video: "./1026.mp4",
     },
     {
       title: "Face Recognition",
       href: "https://github.com/phonsing-Hub/ImageProcessing",
-      dates: "Otc 2023 - Present",
+      dates: "Otc 2023",
       active: true,
       description:
         "Face Recognition is a technology that was created To recognize the structure of the human face Then the detected facial data is sent to the system.",
@@ -216,7 +209,32 @@ export const DATA = {
       ],
       video: "./Flowchart.jpg",
     },
-    
-    
+    {
+      title: "Hardware Controlled System",
+      href: "https://www.tinkercad.com/things/a9ByuVDriVn-phonsing-taleman",
+      dates: "Sep 2023",
+      active: true,
+      description:
+      " Hardware-Controlled System is a control system that relies on hardware alone, without microcontrollers or processors, functioning based on circuit designs using components like logic gates, diodes, and transistors. It is designed for simple, specific tasks requiring stability and low power. Examples include light-following circuits and basic industrial automation controls.",
+      technologies: [
+        "Photoresistor LDR",
+        "Variable Resistor",
+        "Motor dc",
+        "LED",
+        "Resistor",
+        "Op-Amp",
+        "IC 74HC32",
+        "IC 74HC04",
+        "IC L293D ",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://www.tinkercad.com/things/a9ByuVDriVn-phonsing-taleman",
+          icon: <Icons.globe className="size-3" />,
+        },
+      ],
+      video: "./1028.mp4",
+    },
   ],
-}
+};
