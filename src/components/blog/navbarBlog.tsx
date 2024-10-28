@@ -1,8 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import {
-  Kbd,
-  Input,
   Navbar,
   NavbarBrand,
   NavbarContent,
@@ -47,8 +45,8 @@ const menuProject = [
     icon: <FaUserLock size={18} />,
   },
   {
-    key: "/blog/embeddedsystem",
-    label: "Embedded system",
+    key: "/blog/hardware-sontrolled-system",
+    label: "Hardware Controlled System",
     icon: <IoHardwareChip size={18} />,
   },
 ];
@@ -153,7 +151,7 @@ export default function NavbarBlog() {
               setIsMenuOpen(false);
             }}
           >
-            <ListboxSection title="Project">
+            <ListboxSection title="Guide">
               {menuTittle.map((item) => (
                 <ListboxItem
                   key={item.key}
