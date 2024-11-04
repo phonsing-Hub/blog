@@ -14,20 +14,21 @@ interface DataType {
 
 const columns: TableProps<DataType>["columns"] = [
   {
-    title: "L",
+    title: "TL",
     dataIndex: "l",
   },
   {
-    title: "C",
+    title: "TC",
     dataIndex: "c",
   },
   {
-    title: "R",
+    title: "TR",
     dataIndex: "r",
   },
   {
     title: "ML",
     dataIndex: "ml",
+    
   },
   {
     title: "MR",

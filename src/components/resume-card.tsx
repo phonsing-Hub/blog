@@ -45,7 +45,7 @@ export const ResumeCard = ({
       //onClick={handleClick}
       isExternal
     >
-      <Card className="flex">
+      <Card className="flex bg-transparent">
         <div className="flex-none">
           <Avatar className="border size-12 m-auto bg-muted-background dark:bg-foreground">
             <AvatarImage

@@ -19,7 +19,7 @@ const items: MenuItem[] = [
     label: "Guide",
     type: "group",
     children: [
-      { key: "/blog", label: "Introduction", icon: <LuGlobe size={18}/>},
+      { key: "/", label: "Introduction", icon: <LuGlobe size={18}/>},
     ],
   },
   {
@@ -27,8 +27,8 @@ const items: MenuItem[] = [
     label: "Project",
     type: "group",
     children: [
-      { key: "/blog/authentication", label: "Authentication", icon: <FaUserLock size={18}/>},
-      { key: "/blog/hardware-sontrolled-system", label: "Hardware Controlled System", icon: <IoHardwareChip size={18}/> },
+      { key: "/authentication", label: "Authentication", icon: <FaUserLock size={18}/>},
+      { key: "/hardware-sontrolled-system", label: "Hardware Controlled System", icon: <IoHardwareChip size={18}/> },
     ],
   },
 ];

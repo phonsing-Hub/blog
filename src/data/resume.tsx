@@ -1,6 +1,4 @@
 import { Icons } from "@/components/icons";
-import { HomeIcon, NotebookIcon } from "lucide-react";
-
 export const DATA = {
   name: "Phonsing",
   initials: "PS",
@@ -41,13 +39,10 @@ export const DATA = {
     "Google Cloud",
     "Docker",
   ],
-  navbar: [
-    { href: "/", icon: HomeIcon, label: "Home" },
-    { href: "/blog", icon: NotebookIcon, label: "Blog" },
-  ],
+
   contact: {
     email: "polsing.ap@gmail.com",
-    tel: "093-575-9218",
+    tel: "064-763-3547",
     location: "lampho bangbuathong nonthaburi",
     time: "08.00 - 22.00",
     social: {
@@ -162,7 +157,7 @@ export const DATA = {
       degree: "Information Technology",
       logoUrl: "/spu.png",
       start: "2021",
-      end: "2025",
+      end: "Present",
     },
   ],
   projects: [
@@ -187,7 +182,7 @@ export const DATA = {
     {
       title: "Face Recognition",
       href: "https://github.com/phonsing-Hub/ImageProcessing",
-      dates: "Otc 2023",
+      dates: "Oct 2024",
       active: true,
       description:
         "Face Recognition is a technology that was created To recognize the structure of the human face Then the detected facial data is sent to the system.",

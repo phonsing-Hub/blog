@@ -25,14 +25,14 @@ import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
 
 const options = [
-  { value: "Introduction", key: "/blog" },
-  { value: "Authentication", key: "/blog/authentication" },
-  { value: "Hardware Controlled System", key: "/blog/hardware-sontrolled-system" },
+  { value: "Introduction", key: "/" },
+  { value: "Authentication", key: "/authentication" },
+  { value: "Hardware Controlled System", key: "/hardware-sontrolled-system" },
 ];
 
 const menuTittle = [
   {
-    key: "/blog",
+    key: "/",
     label: "Introduction",
     icon: <LuGlobe size={18} />,
   },
@@ -40,12 +40,12 @@ const menuTittle = [
 
 const menuProject = [
   {
-    key: "/blog/authentication",
+    key: "/authentication",
     label: "Authentication",
     icon: <FaUserLock size={18} />,
   },
   {
-    key: "/blog/hardware-sontrolled-system",
+    key: "/hardware-sontrolled-system",
     label: "Hardware Controlled System",
     icon: <IoHardwareChip size={18} />,
   },

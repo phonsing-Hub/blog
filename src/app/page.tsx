@@ -1,4 +1,3 @@
-import Navbar from "@/components/navbar";
 import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { ProjectCard } from "@/components/project-card";
@@ -11,14 +10,20 @@ import { HiOutlineMail } from "react-icons/hi";
 import { FiPhone } from "react-icons/fi";
 import { LiaMapMarkedAltSolid } from "react-icons/lia";
 import { IoMdTime } from "react-icons/io";
-import {Avatar as At, Image} from "@nextui-org/react";
-const BLUR_FADE_DELAY = 0.04;
+import { Image} from "@nextui-org/react";
 
-export default function Page() {
+// export const metadata = {
+//   title: "blog",
+//   description: "My thoughts on software development, life, and more.",
+// };
+
+const BLUR_FADE_DELAY = 0.01;
+
+export default async function BlogPage() {
   return (
     <>
-    <main className="flex flex-col min-h-[100dvh] space-y-10 max-w-2xl mx-auto py-24 px-4">
-      <section id="hero">
+      <section className="BlogPage flex-[4] py-12 sm:py-24 px-4 overflow-auto">
+      <section id="hero" >
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 flex justify-between">
             <div className="flex-col flex flex-1 space-y-1.5">
@@ -51,31 +56,7 @@ export default function Page() {
           <div className="border-t mt-2" />
         </BlurFade>
       </section>
-      {/* <section id="work">
-        <div className="flex min-h-0 flex-col gap-y-3">
-          <BlurFade delay={BLUR_FADE_DELAY * 5}>
-            <h2 className="text-xl font-bold">Work Experience</h2>
-          </BlurFade>
-          {DATA.work.map((work, id) => (
-            <BlurFade
-              key={work.company}
-              delay={BLUR_FADE_DELAY * 6 + id * 0.05}
-            >
-              <ResumeCard
-                key={work.company}
-                logoUrl={work.logoUrl}
-                altText={work.company}
-                title={work.company}
-                subtitle={work.title}
-                href={work.href}
-                badges={work.badges}
-                period={`${work.start} - ${work.end ?? "Present"}`}
-                description={work.description}
-              />
-            </BlurFade>
-          ))}
-        </div>
-      </section> */}
+      <br />
       <section id="education">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 7}>
@@ -94,11 +75,13 @@ export default function Page() {
                 title={education.school}
                 subtitle={education.degree}
                 period={`${education.start} - ${education.end}`}
+                
               />
             </BlurFade>
           ))}
         </div>
       </section>
+      <br />
       <section id="skills">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 9}>
@@ -113,6 +96,7 @@ export default function Page() {
           </div>
         </div>
       </section>
+      <br />
       <section id="projects">
         <div className="space-y-12 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 11}>
@@ -154,7 +138,7 @@ export default function Page() {
           </div>
         </div>
       </section>
-
+      <br />
       <section id="contact">
         <BlurFade delay={BLUR_FADE_DELAY * 16}>
           <div>
@@ -187,10 +171,10 @@ export default function Page() {
           </div>
         </BlurFade>
       </section>
-    </main>
-    <Navbar />
+      </section>
+      <section id="BlogNavbar2" className="hidden xl:flex flex-[1] pt-10">
+        {/* <p>BlogNavbar</p> */}
+      </section>
     </>
   );
 }
-
-
