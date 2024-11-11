@@ -67,7 +67,7 @@ export default function CodeComparison({
         {filename}
         <span className="ml-auto">{language}</span>
       </div>
-      <ScrollShadow  className="max-h-[500px] border-x border-b rounded-b-lg py-4" hideScrollBar size={5}>
+      <ScrollShadow  className="max-h-[500px] border-x border-b rounded-b-lg " hideScrollBar size={0}>
       <div> {renderCode(code, highlightedBefore)}</div>
       </ScrollShadow>
     </>

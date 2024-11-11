@@ -18,6 +18,7 @@ import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
 import { FaUserLock } from "react-icons/fa";
 import { IoHardwareChip } from "react-icons/io5";
+import { TbBrandDocker } from "react-icons/tb";
 import { LuGlobe } from "react-icons/lu";
 import { AutoComplete, ConfigProvider, theme as themeAntd } from "antd";
 import { useTheme } from "next-themes";
@@ -26,8 +27,15 @@ import { usePathname, useRouter } from "next/navigation";
 
 const options = [
   { value: "Introduction", key: "/" },
-  { value: "Authentication", key: "/authentication" },
-  { value: "Hardware Controlled System", key: "/hardware-sontrolled-system" },
+  { value: "Authentication", key: "/projects/authentication" },
+  {
+    value: "Hardware Controlled System",
+    key: "/projects/hardware-sontrolled-system",
+  },
+  {
+    value: "Docker",
+    key: "/documents/docker",
+  },
 ];
 
 const menuTittle = [
@@ -38,14 +46,22 @@ const menuTittle = [
   },
 ];
 
+const menuDoc = [
+  {
+    key: "/documents/docker",
+    label: "Docker",
+    icon: <TbBrandDocker size={18} />,
+  },
+];
+
 const menuProject = [
   {
-    key: "/authentication",
+    key: "/projects/authentication",
     label: "Authentication",
     icon: <FaUserLock size={18} />,
   },
   {
-    key: "/hardware-sontrolled-system",
+    key: "/projects/hardware-sontrolled-system",
     label: "Hardware Controlled System",
     icon: <IoHardwareChip size={18} />,
   },
@@ -71,6 +87,7 @@ const Doc = (
       ))}
   </>
 );
+
 export default function NavbarBlog() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [inputValue, setInputValue] = useState("");
@@ -83,7 +100,7 @@ export default function NavbarBlog() {
     const selectedOption = options.find((option) => option.value === value);
     if (selectedOption) {
       router.push(selectedOption.key); // นำทางไปยังเส้นทางที่เลือก
-      setIsMenuOpen(false)
+      setIsMenuOpen(false);
     }
   };
   useEffect(() => {
@@ -102,7 +119,7 @@ export default function NavbarBlog() {
       }}
     >
       <AutoComplete
-       className="w-full"
+        className="w-full"
         options={inputValue.length > 0 ? options : []}
         placeholder={"Search ..."}
         popupMatchSelectWidth={false}
@@ -153,6 +170,21 @@ export default function NavbarBlog() {
           >
             <ListboxSection title="Guide">
               {menuTittle.map((item) => (
+                <ListboxItem
+                  key={item.key}
+                  startContent={item.icon}
+                  className={
+                    pathname === item.key
+                      ? "text-default-800"
+                      : "text-default-400"
+                  }
+                >
+                  {item.label}
+                </ListboxItem>
+              ))}
+            </ListboxSection>
+            <ListboxSection title="Doc">
+              {menuDoc.map((item) => (
                 <ListboxItem
                   key={item.key}
                   startContent={item.icon}

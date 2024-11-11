@@ -1,7 +1,7 @@
 import { ThemeProvider } from "@/components/theme-provider";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import NavbarBlog from "@/components/blog/navbarBlog";
+import NavbarBlog from "@/components/blog/navbar";
 import ListMenu from "@/components/blog/menu";
 import AntdProvider from "@/components/blog/ConfigProvider";
 import { cn } from "@/lib/utils";
@@ -38,7 +38,7 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        <ThemeProvider attribute="class" defaultTheme="light">
+        <ThemeProvider attribute="class" defaultTheme="dark">
           <Dashed/>
           <NavbarBlog />
           <div className="Blog max-w-7xl mx-auto ">

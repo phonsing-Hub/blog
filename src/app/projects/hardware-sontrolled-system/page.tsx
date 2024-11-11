@@ -1,10 +1,12 @@
 import React from "react";
 import BlurFade from "@/components/magicui/blur-fade";
-import { Chip, Divider, Image, Link } from "@nextui-org/react";
+import ShineBorder from "@/components/ui/shine-border";
+import { Chip, Divider, Image, Link, User, ScrollShadow } from "@nextui-org/react";
 import { HardwareControlledSystem as hcs } from "@/data/blog";
 import TruthTable from "./TruthTable";
 import { ML, MR } from "./Kmap";
-import { cn } from "@/lib/utils";
+import { FaSquareFacebook, FaInstagram, FaXTwitter, FaLinkedin } from "react-icons/fa6";
+
 
 export const metadata = {
   title: "hardware-controlled-system",
@@ -17,9 +19,10 @@ export default function page() {
     "rose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert";
   return (
     <>
-      <section
+      <ScrollShadow
         id="HcsPageContent"
-        className="BlogPage flex-[4] px-4 py-12 overflow-auto"
+        className="BlogPage flex-[4] px-4 py-12"
+        hideScrollBar
       >
         <BlurFade delay={BLUR_FADE_DELAY * 2}>
           <h1 className="text-4xl">{hcs.name}</h1>
@@ -133,11 +136,32 @@ export default function page() {
           </div>
         </BlurFade>
         <p className="text-xs font-bold text-center my-4">apl ps @2002</p>
+      </ScrollShadow>
+      <section className="hidden xl:flex flex-col flex-[1] pt-10 items-start">
+        <h2>Written by:</h2>
+        <ShineBorder
+          className="p-2 relative rounded-lg border"
+          color={["#FAFAFA", "#A1A1AA", "#18181B"]}
+        >
+          <User
+            name="Phonsing Taleman"
+            description={
+              <div className="flex gap-2">
+                <Link href="https://www.facebook.com/noar.ps.3/" isExternal>
+                  <FaSquareFacebook />
+                </Link>
+                <Link href="https://www.instagram.com/p.phonsing_" isExternal>
+                  <FaInstagram />
+                </Link>
+              </div>
+            }
+            avatarProps={{
+              src: "/Cat.jpeg",
+              isBordered: true,
+            }}
+          />
+        </ShineBorder>
       </section>
-      <section
-        id="BlogNavbar2"
-        className="hidden xl:flex flex-[1] pt-10"
-      ></section>
     </>
   );
 }

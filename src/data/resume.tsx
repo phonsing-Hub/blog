@@ -3,8 +3,6 @@ export const DATA = {
   name: "Phonsing",
   initials: "PS",
   //url: "https://dillion.io",
-  location: "San Francisco, CA",
-  locationLink: "https://www.google.com/maps/place/sanfrancisco",
   description: "Computer Engineering and Software Developer",
   summary:
     "Hello, my name is Phonsing Taleman. I am passionate about the development of technology and innovation. My expertise lies in software development and hardware design. I am always eager to learn and improve myself, with a commitment to creating valuable and interesting work continuously.",
@@ -48,7 +46,7 @@ export const DATA = {
     social: {
       GitHub: {
         name: "GitHub",
-        url: "https://github.com/phonsing-Hub",
+        url: "https://github.com/phonsing-Hub/blog",
         icon: Icons.github,
 
         navbar: true,
@@ -72,7 +70,8 @@ export const DATA = {
         icon: Icons.email,
 
         navbar: false,
-      },
+      }
+      
     },
   },
 

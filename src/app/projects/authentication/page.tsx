@@ -1,9 +1,10 @@
 import React from "react";
 import BlurFade from "@/components/magicui/blur-fade";
-import { Divider, Image, ScrollShadow, Link, Chip } from "@nextui-org/react";
+import ShineBorder from "@/components/ui/shine-border";
+import { Divider, Image, Chip, Link, User, ScrollShadow } from "@nextui-org/react";
 import { CodeComparisonDemo } from "@/components/blog/code";
 import { authentication as auth } from "@/data/blog";
-import { cn } from "@/lib/utils";
+import { FaSquareFacebook, FaInstagram, FaXTwitter, FaLinkedin } from "react-icons/fa6";
 
 export const metadata = {
   title: "authentication",
@@ -12,13 +13,13 @@ export const metadata = {
 const BLUR_FADE_DELAY = 0.01;
 
 export default function page() {
-  const textclassdefult =
-    "rose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert";
+
   return (
     <>
-      <section
+      <ScrollShadow
         id="AuthPageContent"
         className="BlogPage flex-[4] px-4 py-12 overflow-auto"
+        hideScrollBar
       >
         <BlurFade delay={BLUR_FADE_DELAY * 2}>
           <h1 className="text-4xl">{auth.name}</h1>
@@ -143,12 +144,32 @@ export default function page() {
           </div>
           <p className="text-xs font-bold text-center mt-6">apl ps @2002</p>
         </BlurFade>
-      </section>
+      </ScrollShadow>
 
-      <section id="BlogNavbar2" className="hidden xl:flex flex-[1] pt-10">
-        {/* <BlurFade delay={BLUR_FADE_DELAY * 3}>
-          <p>BlogNavbar</p>
-        </BlurFade> */}
+      <section className="hidden xl:flex flex-col flex-[1] pt-10 items-start">
+      <h2>Written by:</h2>
+        <ShineBorder
+          className="p-2 relative rounded-lg border"
+          color={["#FAFAFA", "#A1A1AA", "#18181B"]}
+        >
+          <User
+            name="Phonsing Taleman"
+            description={
+              <div className="flex gap-2">
+                <Link href="https://www.facebook.com/noar.ps.3/" isExternal>
+                  <FaSquareFacebook />
+                </Link>
+                <Link href="https://www.instagram.com/p.phonsing_" isExternal>
+                  <FaInstagram />
+                </Link>
+              </div>
+            }
+            avatarProps={{
+              src: "/Cat.jpeg",
+              isBordered: true,
+            }}
+          />
+        </ShineBorder>
       </section>
     </>
   );
