@@ -140,10 +140,10 @@ function page() {
           <br />
           <div id="objective-list" className="flex flex-col gap-2">
             <div className="text-pretty flex flex-col">
-              <Chip variant="flat" radius="sm" size="lg">
+              <Chip variant="flat" radius="sm" size="lg" className="">
                 <p className="font-bold text-pretty">
-                  การพัฒนาแอปพลิเคชันในสภาพแวดล้อมที่สม่ำเสมอ
-                  (ConsistentEnvironment)
+                  การพัฒนาแอปพลิเคชัน
+                 
                 </p>
               </Chip>
               Docker
@@ -155,7 +155,7 @@ function page() {
             <div className="text-pretty flex flex-col">
               <Chip variant="flat" radius="sm" size="lg">
                 <p className="font-bold text-pretty">
-                  การสร้างและรันคอนเทนเนอร์หลายตัว (Containerization)
+                  การสร้างและรันคอนเทนเนอร์หลายตัว
                 </p>
               </Chip>
               Docker ทำให้สามารถสร้างคอนเทนเนอร์ที่มีขนาดเล็กและเบา
@@ -178,7 +178,7 @@ function page() {
             <div className="text-pretty flex flex-col">
               <Chip variant="flat" radius="sm" size="lg">
                 <p className="font-bold text-pretty">
-                  การจัดการเวอร์ชัน (Version Control)
+                  การจัดการเวอร์ชัน
                 </p>
               </Chip>
               Docker รองรับการจัดการเวอร์ชันของคอนเทนเนอร์ได้
@@ -188,7 +188,7 @@ function page() {
             <div className="text-pretty flex flex-col">
               <Chip variant="flat" radius="sm" size="lg">
                 <p className="font-bold text-pretty">
-                  การทดสอบแอปพลิเคชัน (Testing)
+                  การทดสอบแอปพลิเคชัน
                 </p>
               </Chip>
               Docker
@@ -198,8 +198,7 @@ function page() {
             <div className="text-pretty flex flex-col">
               <Chip variant="flat" radius="sm" size="lg">
                 <p className="font-bold text-pretty">
-                  การทำงานร่วมกับ CI/CD (Continuous Integration/Continuous
-                  Deployment)
+                  การทำงานร่วมกับ CI/CD
                 </p>
               </Chip>
               Docker เป็นเครื่องมือสำคัญในการทำงานร่วมกับระบบ CI/CD
@@ -209,7 +208,7 @@ function page() {
             <div className="text-pretty flex flex-col">
               <Chip variant="flat" radius="sm" size="lg">
                 <p className="font-bold text-pretty">
-                  การขยายระบบ (Scalability)
+                  การขยายระบบ
                 </p>
               </Chip>
               Docker ช่วยให้การขยายระบบทำได้ง่ายดาย
@@ -219,7 +218,7 @@ function page() {
             <div className="text-pretty flex flex-col">
               <Chip variant="flat" radius="sm" size="lg">
                 <p className="font-bold text-pretty">
-                  การจัดการทรัพยากรที่มีประสิทธิภาพ (Resource Efficiency)
+                  การจัดการทรัพยากรที่มีประสิทธิภาพ
                 </p>
               </Chip>
               Docker ใช้ทรัพยากรน้อยกว่า Virtual Machines (VMs)
